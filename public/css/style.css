@@ -1,0 +1,46 @@
+/* stylesheet for todo app  */
+
+/* import fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Poppins:wght@400;500&display=swap');
+
+
+/* variables for fonts */
+
+:root {
+    --opensan: 'Open Sans', sans-serif;
+    --poppins: 'Poppins', sans-serif;
+}
+
+/* base  */
+*,
+*::after,
+*::before {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: var(--poppins);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+}
+
+
+
+/* overall stylesheet  */
+
+.todo{
+    position: relative;
+    width: 450px;
+    height: auto;
+    padding: 2rem;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 100px 100px 80px rgba(0, 0, 0, 0.07);
+}
