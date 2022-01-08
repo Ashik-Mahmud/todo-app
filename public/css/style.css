@@ -93,6 +93,12 @@ body {
 
 .todo-body .todo-lists{
     position: relative;
+    max-height: 350px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+*::-webkit-scrollbar{
+    display: none;
 }
 .todo-lists ul li{
     position: relative;
@@ -154,4 +160,35 @@ body {
     font-family: var(--poppins);
     cursor: pointer;
 
+}
+
+/* todo msg  */
+.todo-msg{
+    position: absolute;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    width: 500px;
+    background: #fff;
+    top: -5rem;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transform: translateX(-50%);
+    transition: all 0.5s ease-in;
+}
+.todo-msg.active{
+    top: 3rem;
+}
+
+.todo-msg .clear-msg{
+    position: relative;
+     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    color: #fff;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 30px;
 }
