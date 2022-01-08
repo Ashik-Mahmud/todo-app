@@ -124,7 +124,7 @@ body {
     
 }
 .todo-lists ul li .action{
-    background: #e74c3c;
+    background: #2c3e50;
     display: block;
     padding: .6rem 1rem;
     color: #fff;
@@ -160,6 +160,10 @@ body {
     font-family: var(--poppins);
     cursor: pointer;
 
+}
+.todo-footer button.disabled{
+    opacity: .5;
+    pointer-events: none;
 }
 
 /* todo msg  */

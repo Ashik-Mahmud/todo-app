@@ -23,7 +23,9 @@ function AddTodo() {
         }
         listarr.push(data);
         localStorage.setItem("Todo Lists", JSON.stringify(listarr));
-
+        inputField.value = "";
+        // call show todo list function
+        ShowTodoList();
 
     } else {
         todoMsg.classList.add("active");
@@ -37,6 +39,48 @@ function AddTodo() {
 }
 addBtn.addEventListener("click", AddTodo);
 
+
+// Show Task function
+function ShowTodoList() {
+    let getLocalStorage = localStorage.getItem("Todo Lists");
+    if (getLocalStorage === null) {
+        listarr = [];
+    } else {
+        listarr = JSON.parse(getLocalStorage);
+    }
+    let liTag = '';
+    listarr.forEach((element, index) => {
+        liTag += ` <li><span class="name">${element}</span><span onclick="deleteItem(${index})" title="Delete this Item" class="action">C</span></li>`;
+    });
+    todoLists.innerHTML = liTag;
+    CountItem.textContent = listarr.length;
+    if (listarr.length === 0) {
+        clearallBtn.classList.add("disabled");
+    } else {
+        clearallBtn.classList.remove("disabled");
+    }
+
+};
+
+ShowTodoList()
+
+
+// Delete todolist when click in todo item 
+function deleteItem(index) {
+    if (confirm("Would You like to Earse this list ?")) {
+        let getLocalStorage = localStorage.getItem("Todo Lists");
+        listarr = JSON.parse(getLocalStorage);
+        listarr.splice(index, 1);
+        localStorage.setItem("Todo Lists", JSON.stringify(listarr));
+        // call show todo list function
+        ShowTodoList();
+    }
+
+};
+
+
+
+
 // work with enter button
 document.addEventListener("keypress", (press) => {
     if (press.key === "Enter") {
@@ -45,20 +89,14 @@ document.addEventListener("keypress", (press) => {
 })
 
 
-// Delete Item from todolist 
-function delItem(item) {
-    if (confirm("Would you like to delete?")) {
-        item.parentElement.remove();
-        CountItem.textContent = todoLists.children.length
-
-    }
-}
 
 // Clear All todoLists 
 function ClearAllTodoList() {
     if (confirm("Would you like to delete all todolist?")) {
-        todoLists.innerHTML = "";
-        CountItem.textContent = todoLists.children.length
+        listarr = [];
+        localStorage.setItem("Todo Lists", JSON.stringify(listarr));
+        // call show todo list function
+        ShowTodoList();
     }
 };
 clearallBtn.addEventListener("click", ClearAllTodoList);
