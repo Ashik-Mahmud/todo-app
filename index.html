@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,14 +13,37 @@
 
 
 </head>
+
 <body>
-   
+
     <!-- todo  -->
     <div class="todo">
-        <div class="todo-header"><h1>Todo App is Under Construction.</h1></div>
+        <div class="todo-header">
+            <h1 class="title">Todo <span class="colorize">App</span></h1>
+        </div>
+        <div class="todo-body">
+            <div class="todo-input-area">
+                <input type="text" placeholder="Add you new Todo" id="todo-field" autocomplete="off">
+                <button class="add-todo">Add</button>
+            </div>
+            <div class="todo-lists">
+                <ul>
+                    <li><span class="name">Buy A new gaming Laptop</span><span class="action">C</span></li>
+                    <li><span class="name">Start Reading New Book</span><span class="action">C</span></li>
+                    <li><span class="name">Check Some Accessibility.</span><span class="action">C</span></li>
+                    <li><span class="name">Timely Sleep</span><span class="action">C</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="todo-footer">
+            <span class="text">You have a <b>4</b> Pending Task</span>
+            <button class="clearall">Clear All</button>
+        </div>
     </div>
+
 
     <!-- scriping file in js  -->
     <script src="./public/js/app.js"></script>
 </body>
+
 </html>
