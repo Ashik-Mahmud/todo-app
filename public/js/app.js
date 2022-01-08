@@ -20,7 +20,6 @@ function AddTodo() {
         todoLists.appendChild(li);
         inputField.value = "";
         CountItem.textContent = todoLists.children.length
-       
 
     } else {
         todoMsg.classList.add("active");
