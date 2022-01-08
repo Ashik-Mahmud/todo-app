@@ -15,12 +15,15 @@ const CountItem = document.querySelector(".todo-footer .countItem");
 function AddTodo() {
     let data = inputField.value;
     if (data !== "") {
-        let li = document.createElement("li");
-        li.innerHTML = `<span class="name">${data} </span><span onclick="delItem(this);" class="action">C</span>`;
-        todoLists.appendChild(li);
-        inputField.value = "";
-        CountItem.textContent = todoLists.children.length
-       
+        let getLocalStorage = localStorage.getItem("Todo Lists");
+        if (getLocalStorage === null) {
+            listarr = [];
+        } else {
+            listarr = JSON.parse(getLocalStorage);
+        }
+        listarr.push(data);
+        localStorage.setItem("Todo Lists", JSON.stringify(listarr));
+
 
     } else {
         todoMsg.classList.add("active");
